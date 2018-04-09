@@ -2,24 +2,45 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+
+
+
     defaultConfig {
-        applicationId "com.debugcat.qplugin"
+        applicationId "com.debugcat.pluginapk"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    // 修改生成的默认apk名称/位置
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && (outputFile.name.endsWith('debug.apk') || outputFile.name.endsWith('release-unsigned.apk'))) {
+//                // APK生成还在原位置，只是改了名称
+//                output.outputFile = new File(outputFile.parent, "plugin.apk")
+//                // APK生成在主工程相应位置，并且改了名称
+////                output.outputFile = new File(rootDir.parent + File.separator + "QPlugin" + File.separator + "app" + File.separator + "src" + File.separator + "test" + File.separator + "plugin.apk")
+//            }
+//        }
+//    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:design:26.1.0'

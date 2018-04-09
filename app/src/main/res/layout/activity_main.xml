@@ -13,31 +13,33 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="加载SD卡jar包"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:padding="20dp"
         android:background="@drawable/select_sex_button_check"/>
 
 
     <TextView
         android:layout_below="@id/tv_load_jar"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/tv_load_plugin"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载插件Activity类"
+        android:padding="20dp"
+        android:background="@drawable/select_sex_button_check"/>
+
+
+    <TextView
+        android:layout_below="@id/tv_load_plugin"
+        android:layout_marginTop="80dp"
+        android:id="@+id/tv_load_apk"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="启动插件Activity"
         android:padding="20dp"
         android:background="@drawable/select_sex_button_check"/>
-
-    <TextView
-        android:id="@+id/tv_text"
-        android:layout_marginTop="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_load_plugin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-
 
 
 

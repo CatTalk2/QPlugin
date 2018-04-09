@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QPlugin.iml" filepath="$PROJECT_DIR$/QPlugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pluginapk/pluginapk.iml" filepath="$PROJECT_DIR$/pluginapk/pluginapk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugindemo/plugindemo.iml" filepath="$PROJECT_DIR$/plugindemo/plugindemo.iml" />
     </modules>
   </component>
 </project>

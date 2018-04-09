@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QPlugin</string>
+    <string name="title_activity_plugin">PluginActivity</string>
 </resources>
