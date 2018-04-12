@@ -1,18 +1,15 @@
 package com.debugcat.pluginapk;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-public class PluginResourceActivity extends AppCompatActivity {
+public class PluginResourceActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +30,8 @@ public class PluginResourceActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                root.setBackgroundDrawable(getResources().getDrawable(R.drawable.img_bg));
+                root.setBackgroundDrawable( getApplication().getResources().getDrawable(R.drawable.img_bg));
             }
         });
     }
-
-
 }

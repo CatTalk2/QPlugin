@@ -25,11 +25,16 @@ public class PluginInstrumentation extends Instrumentation {
                 if("com.debugcat.qplugin.EmptyActivity".equals(className)) {
                     String realActivity = className = intent.getStringExtra(REAL_ACTIVITY);
                     if (!TextUtils.isEmpty(realActivity)) {
+                        //替换resources
+                        PluginHook.mNowResources = PluginHook.mBaseResources;
+                        PluginHook.mNowAssetManager = PluginHook.mBaseAssetManager;
                         return super.newActivity(cl, realActivity, intent);
                     }
                 }
             }
         }
+        PluginHook.mNowResources = null;
+        PluginHook.mNowAssetManager = null;
         return super.newActivity(cl, className, intent);
     }
 }

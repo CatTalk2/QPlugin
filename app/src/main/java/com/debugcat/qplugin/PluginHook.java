@@ -6,6 +6,8 @@ import android.app.Instrumentation;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -35,6 +37,16 @@ public class PluginHook {
 
     public static ClassLoader mNowClassLoader;
 
+    public static Resources   mNowResources;
+
+    public static Resources   mBaseResources;
+
+    public static AssetManager   mNowAssetManager;
+
+    public static AssetManager   mBaseAssetManager;
+
+
+
     public static volatile Context mBaseContext;                        //原始的application中的BaseContext，不能是其他的，否则会内存泄漏
 
     //hook Instrumentation, hook Classloader
@@ -58,6 +70,17 @@ public class PluginHook {
 
         setField(getField(mBaseContext, "mPackageInfo"), "mClassLoader", mNowClassLoader);
         Thread.currentThread().setContextClassLoader(mNowClassLoader);
+
+        try {
+            mBaseAssetManager = AssetManager.class.newInstance();
+            Method addAssetPath = AssetManager.class.getDeclaredMethod("addAssetPath", String.class);
+            addAssetPath.setAccessible(true);
+            addAssetPath.invoke(mBaseAssetManager, optimizedDexOutputPath.getAbsolutePath());
+            mBaseResources = new Resources(mBaseAssetManager, application.getResources().getDisplayMetrics(), application.getResources().getConfiguration());
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
     }
 
 
